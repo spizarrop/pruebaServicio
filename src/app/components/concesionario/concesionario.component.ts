@@ -1,14 +1,21 @@
 import { Component } from '@angular/core';
-import { ProductoService } from 'src/app/services/concesionario.service';
+import { ConcesionarioService } from 'src/app/services/concesionario.service';
 
 @Component({
-  selector: 'app-producto',
+  selector: 'app-concesionario',
   templateUrl: './concesionario.component.html',
   styleUrls: ['./concesionario.component.css']
 })
-export class ProductoComponent{
+export class ConcesionarioComponent{
 
-  constructor(producto: ProductoService){
-    
+  public listaCoches: any[] = [];
+
+  constructor(private concesionario: ConcesionarioService){}
+
+  ngOnInit(){
+    this.listaCoches = this.concesionario.getCoches();
   }
+
+
+
 }
