@@ -16,6 +16,4 @@ export class ConcesionarioComponent{
     this.listaCoches = this.concesionario.getCoches();
   }
 
-
-
 }

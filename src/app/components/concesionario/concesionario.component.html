@@ -1,6 +1,14 @@
 <h1>Concesionario</h1>
-<ul>
-    <li *ngFor="let coche of listaCoches">
-        {{ coche.id }} - {{ coche.marca }}
-    </li>
-</ul>
+
+<div class="contenedor-tarjetas">
+  <div class="card" *ngFor="let coche of listaCoches">
+    <img [src]="coche.imagen" [alt]="coche.modelo">
+    
+    <div class="card-body">
+      <h2>{{ coche.marca }}</h2>
+      <h3>{{ coche.modelo }}</h3>
+      <p class="precio">{{ coche.precio | currency:'EUR' }}</p>
+      <button>Ver detalles</button>
+    </div>
+  </div>
+</div>
