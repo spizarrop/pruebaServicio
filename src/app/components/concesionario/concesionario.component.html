@@ -1,4 +1,6 @@
-<h1>Concesionario</h1>
+<div id="titulo">
+  <h1>Concesionario</h1>
+</div>
 
 <div class="contenedor-tarjetas">
   <div class="card" *ngFor="let coche of listaCoches">
@@ -8,7 +10,6 @@
       <h2>{{ coche.marca }}</h2>
       <h3>{{ coche.modelo }}</h3>
       <p class="precio">{{ coche.precio | currency:'EUR' }}</p>
-      <button>Ver detalles</button>
     </div>
   </div>
 </div>
