@@ -9,10 +9,15 @@ import { ConcesionarioService } from 'src/app/services/concesionario.service';
 export class ConcesionarioComponent{
 
   public listaCoches: any[] = [];
-  id: number = 0;
   marca: string = '';
   modelo: string = '';
   precio: number = 0;
+
+  cocheEditando: any = null;
+  mostrarPopup: boolean = false;
+  editMarca: string = '';
+  editModelo: string = '';
+  editPrecio: number = 0;
 
   constructor(private concesionario: ConcesionarioService){}
 
@@ -29,12 +34,31 @@ export class ConcesionarioComponent{
     }
   }
 
-  eliminarCoche(){
-    this.concesionario.eliminarCoche(this.id);
+  eliminarCoche(id: number){
+    this.concesionario.eliminarCoche(id);
+    this.listaCoches = this.concesionario.getCoches();
   }
 
-  modificarCoche(){
-    this.concesionario.modificarCoche(this.id, this.marca,this.modelo,this.precio);
+  abrirPopup(coche: any) {
+    this.cocheEditando = coche;
+    this.editMarca = coche.marca;
+    this.editModelo = coche.modelo;
+    this.editPrecio = coche.precio;
+    this.mostrarPopup = true;
   }
 
+  confirmarModificacion() {
+    this.cocheEditando.marca = this.editMarca;
+    this.cocheEditando.modelo = this.editModelo;
+    this.cocheEditando.precio = this.editPrecio;
+    
+    this.concesionario.modificarCoche(this.cocheEditando);
+    this.listaCoches = this.concesionario.getCoches();
+    this.cerrarPopup();
+  }
+
+  cerrarPopup() {
+    this.mostrarPopup = false;
+    this.cocheEditando = null;
+  }
 }

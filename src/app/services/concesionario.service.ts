@@ -25,16 +25,16 @@ export class ConcesionarioService {
   }
 
   eliminarCoche(id: number){
-    this.listaCoches = this.listaCoches.filter(c => c.id !== id);
+    this.listaCoches = this.listaCoches.filter(coche => coche.id !== id);
   }
 
-  modificarCoche(id: number, marca: string, modelo: string, precio: number){
-    const coche = this.listaCoches.find(coche => coche.id === id);
+  modificarCoche(cocheEditando: any){
+    const coche = this.listaCoches.find(coche => coche.id === cocheEditando.id);
 
     if (coche) {
-      coche.marca = marca;
-      coche.modelo = modelo;
-      coche.precio = precio;
+      coche.marca = cocheEditando.marca;
+      coche.modelo = cocheEditando.modelo;
+      coche.precio = cocheEditando.precio;
     }
   }
 
