@@ -1,15 +1,36 @@
 <div id="titulo">
   <h1>Concesionario</h1>
 </div>
-
 <div class="contenedor-tarjetas">
+  <div class="card card-form">
+    <div class="card-body">
+      <h2 class="form-title">Añadir coche</h2>
+      <div class="form-group">
+        <label>Marca</label>
+        <input type="text" [(ngModel)]="marca" placeholder="Ej: Toyota">
+      </div>
+      <div class="form-group">
+        <label>Modelo</label>
+        <input type="text" [(ngModel)]="modelo" placeholder="Ej: Corolla">
+      </div>
+      <div class="form-group">
+        <label>Precio (€)</label>
+        <input type="number" [(ngModel)]="precio" placeholder="Ej: 18000">
+      </div>
+      <button class="btn-primary" (click)="agregarCoche()">Agregar coche</button>
+    </div>
+  </div>
   <div class="card" *ngFor="let coche of listaCoches">
     <img [src]="coche.imagen" [alt]="coche.modelo">
-    
     <div class="card-body">
       <h2>{{ coche.marca }}</h2>
       <h3>{{ coche.modelo }}</h3>
       <p class="precio">{{ coche.precio | currency:'EUR' }}</p>
+      <div class="acciones">
+        <button class="btn-warning" (click)="agregarCoche()">Modificar</button>
+        <button class="btn-danger" (click)="agregarCoche()">Eliminar</button>
+      </div>
     </div>
   </div>
 </div>
+

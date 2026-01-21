@@ -19,4 +19,23 @@ export class ConcesionarioService {
     return this.listaCoches;
   }
 
+  agregarCoche(marca: string, modelo: string, precio: number){
+    const nuevoCoche = {id: this.listaCoches.length+1, marca, modelo, precio}
+    this.listaCoches.push(nuevoCoche);
+  }
+
+  eliminarCoche(id: number){
+    this.listaCoches = this.listaCoches.filter(c => c.id !== id);
+  }
+
+  modificarCoche(id: number, marca: string, modelo: string, precio: number){
+    const coche = this.listaCoches.find(coche => coche.id === id);
+
+    if (coche) {
+      coche.marca = marca;
+      coche.modelo = modelo;
+      coche.precio = precio;
+    }
+  }
+
 }
