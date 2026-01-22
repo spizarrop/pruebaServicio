@@ -37,22 +37,18 @@
 <div class="modal" *ngIf="mostrarPopup">
   <div class="modal-content">
     <h2>Modificar coche</h2>
-
     <div class="form-group">
       <label>Marca</label>
       <input type="text" [(ngModel)]="editMarca">
     </div>
-
     <div class="form-group">
       <label>Modelo</label>
       <input type="text" [(ngModel)]="editModelo">
     </div>
-
     <div class="form-group">
       <label>Precio (€)</label>
       <input type="number" [(ngModel)]="editPrecio">
     </div>
-
     <div class="acciones">
       <button class="btn-primary" (click)="confirmarModificacion()">Confirmar</button>
       <button class="btn-danger" (click)="cerrarPopup()">Cancelar</button>

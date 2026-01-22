@@ -82,15 +82,15 @@
 
 /* Botón principal */
 .btn-primary {
-  margin-top: 10px;
-  padding: 10px;
+  flex: 1;
+  padding: 8px;
   background-color: #3498db;
   color: white;
   border: none;
   border-radius: 6px;
-  font-size: 1rem;
+  font-size: 0.9rem;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: transform 0.1s;
 }
 
 .btn-primary:hover {
@@ -109,8 +109,8 @@
 .btn-warning {
   flex: 1;
   padding: 8px;
-  background-color: #f1c40f;
-  color: #2c3e50;
+  background-color: #47a710;
+  color: white;
   border: none;
   border-radius: 6px;
   font-size: 0.9rem;
@@ -119,7 +119,7 @@
 }
 
 .btn-warning:hover {
-  background-color: #d4ac0d;
+  background-color: #49a812;
   transform: translateY(-1px);
 }
 

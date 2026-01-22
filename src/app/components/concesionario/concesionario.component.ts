@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ConcesionarioService } from 'src/app/services/concesionario.service';
+import { Coche } from './coche';
 
 @Component({
   selector: 'app-concesionario',
@@ -8,12 +9,12 @@ import { ConcesionarioService } from 'src/app/services/concesionario.service';
 })
 export class ConcesionarioComponent{
 
-  public listaCoches: any[] = [];
+  public listaCoches: Coche[] = [];
   marca: string = '';
   modelo: string = '';
   precio: number = 0;
 
-  cocheEditando: any = null;
+  cocheEditando: Coche | any = null;
   mostrarPopup: boolean = false;
   editMarca: string = '';
   editModelo: string = '';
@@ -34,12 +35,12 @@ export class ConcesionarioComponent{
     }
   }
 
-  eliminarCoche(id: number){
+  eliminarCoche(id: number) {
     this.concesionario.eliminarCoche(id);
     this.listaCoches = this.concesionario.getCoches();
   }
 
-  abrirPopup(coche: any) {
+  abrirPopup(coche: Coche) {
     this.cocheEditando = coche;
     this.editMarca = coche.marca;
     this.editModelo = coche.modelo;

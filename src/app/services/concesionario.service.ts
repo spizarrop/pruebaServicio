@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Coche } from '../components/concesionario/coche';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +29,7 @@ export class ConcesionarioService {
     this.listaCoches = this.listaCoches.filter(coche => coche.id !== id);
   }
 
-  modificarCoche(cocheEditando: any){
+  modificarCoche(cocheEditando: Coche){
     const coche = this.listaCoches.find(coche => coche.id === cocheEditando.id);
 
     if (coche) {
